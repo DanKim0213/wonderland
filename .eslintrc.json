@@ -19,5 +19,5 @@
     ],
     "rules": {
     },
-    "ignorePatterns": ["dist/"]
+    "ignorePatterns": ["dist/", "knexfile.js", "migrations/", "seeds/"]
 }

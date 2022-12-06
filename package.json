@@ -6,6 +6,9 @@
   "scripts": {
     "develop": "nodemon dist/index.js",
     "build": "rm -rf ./dist && tsc",
+    "migrate-latest":"knex migrate:latest",
+    "migrate-rollback": "knex migrate:rollback",
+    "seed": "knex seed:run",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -16,6 +19,7 @@
   "author": "dan",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^16.0.3",
     "knex": "^2.3.0",
     "koa": "^2.13.4",
     "koa-pino-logger": "^4.0.0",
