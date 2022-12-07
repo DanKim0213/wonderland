@@ -1,5 +1,5 @@
 import { Model } from "objection";
-import Brand from "../brand/Brand";
+import Brand from "../brand/model/Brand";
 
 export default class Product extends Model {
   id!: number;
