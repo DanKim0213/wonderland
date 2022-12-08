@@ -7,23 +7,24 @@ export async function up(knex: Knex): Promise<void> {
       table.increments("id");
       table.string("email", 100).unique().notNullable();
       table.string("password", 100).notNullable();
-      table.enum("gender", ["FEMALE", "MALE"]);
+      table.enum("gender", ["FEMALE", "MALE"]).notNullable();
       table.string("name", 100).notNullable();
       table.date("birth").notNullable();
       table.string("address");
-      table.integer("postCode").unsigned();
     })
     .createTable("clothes", function (table) {
       table.increments("id");
       table.string("imgPath", 255).notNullable();
       table.string("name", 100);
-      table.enum("category", ["JACKET", "TOP", "PANTS", "DRESS"]);
+      table.enum("category", ["JACKET", "TOP", "PANTS", "DRESS"]).notNullable();
       table.string("texture", 100).notNullable();
       table.string("hexCode", 10).notNullable();
-      table.enum("season", ["ALL", "SPRING", "SUMMER", "AUTUMN", "WINTER"]);
-      table.integer("userId").unsigned().notNullable();
+      table
+        .enum("season", ["ALL", "SPRING", "SUMMER", "AUTUMN", "WINTER"])
+        .notNullable();
+      table.integer("ownerId").unsigned().notNullable();
 
-      table.foreign("userId").references("id").inTable("users");
+      table.foreign("ownerId").references("id").inTable("users");
     })
     .createTable("combinations", function (table) {
       // A "top" cloth could be a parent id.
@@ -46,7 +47,7 @@ export async function up(knex: Knex): Promise<void> {
     })
     .createTable("brands", function (table) {
       table.increments("id");
-      table.string("name").notNullable();
+      table.string("name", 100).notNullable();
       table.string("website", 100).notNullable();
     })
     .createTable("products", function (table) {

@@ -18,8 +18,11 @@ export async function seed(knex: Knex): Promise<void> {
       gender: "FEMALE",
       name: "name test 1",
       birth: new Date(),
-      address: "경기도 평택시 용이동",
-      postCode: "18114",
+      address: JSON.stringify({
+        street: "용이동 402호",
+        city: "경기도 평택시",
+        zipCode: "18114",
+      }),
     },
     {
       id: 2,
