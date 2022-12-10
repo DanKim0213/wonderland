@@ -1,6 +1,7 @@
 # TODO list
 
 1. documentate using @microsoft/tsdoc, eslint-plugin-tsdoc, and @microsoft/api-extractor
+2. How do I set jest beforeEach and beforeAll globally??
 
 # How to Build
 

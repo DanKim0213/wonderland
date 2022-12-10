@@ -12,9 +12,19 @@ export default class User extends Model {
   password!: string;
   gender!: string;
   name!: string;
-  age!: number; // TODO: need to be calculated by birth
+  birth!: Date;
 
   clothes?: Cloth[];
+
+  // static-virtualattributes
+  // the diff between method and getter is that method is considered as Function while getter as an attribute
+  static get virtualAttributes() {
+    return ["age"];
+  }
+
+  get age() {
+    return new Date().getFullYear() - this.birth.getFullYear() + 1;
+  }
 
   // Table name is the only required property.
   static tableName = "users";
@@ -28,7 +38,8 @@ export default class User extends Model {
 
     properties: {
       id: { type: "integer" },
-      email: { type: "string", minLength: 1, maxLength: 100, format: "email" },
+      email: { type: "string", minLength: 6, maxLength: 127, format: "email" },
+      // email: { type: "string", pattern: "^\\S+@\\S+\\.\\S+$", format: "email", minLength: 6, maxLength: 127, },
       password: { type: "string", minLength: 1, maxLength: 100 },
       gender: { enum: ["FEMALE", "MALE"] },
       name: { type: "string", minLength: 1, maxLength: 100 },

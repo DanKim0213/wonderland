@@ -42,7 +42,7 @@ export async function seed(knex: Knex): Promise<void> {
       texture: "leather",
       hexCode: "#FFFFFF",
       season: "all",
-      userId: 1,
+      ownerId: 1,
     },
     {
       id: 2,
@@ -52,7 +52,7 @@ export async function seed(knex: Knex): Promise<void> {
       texture: "wool",
       hexCode: "#FFFFFF",
       season: "all",
-      userId: 1,
+      ownerId: 1,
     },
   ]);
   await knex("combinations").insert([
