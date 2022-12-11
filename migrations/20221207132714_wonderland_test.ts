@@ -10,7 +10,7 @@ export async function up(knex: Knex): Promise<void> {
       table.enum("gender", ["FEMALE", "MALE"]).notNullable();
       table.string("name", 100).notNullable();
       table.date("birth").notNullable();
-      table.string("address");
+      table.json("address");
     })
     .createTable("clothes", function (table) {
       table.increments("id");

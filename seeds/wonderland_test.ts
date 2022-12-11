@@ -17,12 +17,12 @@ export async function seed(knex: Knex): Promise<void> {
       password: "test1",
       gender: "FEMALE",
       name: "name test 1",
-      birth: new Date(),
-      address: JSON.stringify({
+      birth: "2022-12-10", // knex.fn.now()
+      address: {
         street: "용이동 402호",
         city: "경기도 평택시",
         zipCode: "18114",
-      }),
+      },
     },
     {
       id: 2,
@@ -30,7 +30,7 @@ export async function seed(knex: Knex): Promise<void> {
       password: "test2",
       gender: "MALE",
       name: "name test 2",
-      birth: new Date(),
+      birth: "2022-12-10",
     },
   ]);
   await knex("clothes").insert([

@@ -3,15 +3,10 @@ import Knex from "knex";
 import knexConfig from "../../knexfile";
 import { Model } from "objection";
 import User from "../../src/user/model/User";
-import Cloth from "../../src/cloth/model/Cloth";
 
 dotenv.config();
 // Initialize knex.
-const knex = Knex(
-  process.env.NODE_ENV === "production"
-    ? knexConfig.production
-    : knexConfig.development
-);
+const knex = Knex(knexConfig.testment);
 
 describe("User model in User folder", () => {
   beforeAll(() => {
@@ -53,22 +48,22 @@ describe("User model in User folder", () => {
     ]);
   });
 
-  test("insert a user", async () => {
+  test.skip("insert a user", async () => {
     const aUser = {
       email: "anonymous@gmail.com",
       password: "anonymous",
       gender: "FEMALE",
       name: "name anonymous",
-      birth: new Date(),
-      address: JSON.stringify({
+      birth: "2022-12-11",
+      address: {
         street: "용이동 402호",
         city: "경기도 평택시",
         zipCode: "18114",
-      }),
+      },
     };
 
     const anonymous = await User.query().insert(aUser);
     expect(anonymous).toBeInstanceOf(User);
-    expect(anonymous?.name).toBe("name anonymouse");
+    expect(anonymous?.name).toBe("name anonymous");
   });
 });
