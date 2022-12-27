@@ -1,18 +1,25 @@
 # TypeScript 환경에서 문서화하기
 
-## INDEX
+<!-- ## INDEX -->
+<!-- 1. [문서화가 중요한가?](#1.-문서화를-해야하는-이유)
+2. [JSDoc vs TSDoc](#JSDoc과-TSDoc의-차이는)
+3. [TSDoc 사용법은](#TSDoc-사용법은)
+4. [문서화 하는법은](#문서화를-Markdown-아니면-Html로-할것인가)
+5. [References](#references) -->
 
-[1. 문서화가 중요한가?](##1.-문서화가-중요한가?)
-[2. 시작하기 전에](##2.-시작하기-전에:-JSDoc과-TSDoc의-차이는?)
-[3. TSDoc 사용법은?](##3.TSDoc사용법은?)
-[4. 문서화 하는법은?](##4.문서화를Markdown아니면Html로할것인가?)
-[References](##references)
+## 목차
 
-## 1. 문서화가 중요한가?
+1. 문서화를 해야하는 이유
+2. JSDoc과 TSDoc의 차이
+3. TSDoc 사용법
+4. 주석을 문서화하는 법
+5. 참조
+
+## 1. 문서화를 해야하는 이유
 
 가장 근본적인 이유는 코드를 읽고 이해할 시간이 부족하기 때문이다. (정말 부족하다....) 때로는 코드를 읽다가 오해하여 오용할수도 있다. 따라서, 문서화를 통해 시간을 절약하고 더 나은 커뮤니케이션 용도로 활용하자.
 
-## 2. 시작하기 전에: JSDoc과 TSDoc의 차이는?
+## 2. JSDoc과 TSDoc의 차이는
 
 - @param 태그에 type을 생략할 수 있다
 - @return 태그에 type을 생략할 수 있다
@@ -112,11 +119,11 @@ class Rectangle {
 
 얼핏 보기엔 JSDoc과 사용법이 아주 비슷하다. 그렇다면, TSDoc은 필요없지 않을까? TSDoc 공식사이트에서는 분석 툴들 (TypeDoc, EsLint, VS code 등등)이 JSDoc 기반으로 한 문법을 인지하기때문에 상호호환이 안될 수 있다고 지적하고 있다. [here](https://tsdoc.org)
 
-## 3. TSDoc 사용법은?
+## 3. TSDoc 사용법은
 
 [공식 문서를 참조하도록](https://tsdoc.org)
 
-## 4. 문서화를 Markdown 아니면 Html로 할 것인가?
+## 4. 문서화를 Markdown 아니면 Html로 할 것인가
 
 깃허브는 공식적으로 Markdown을 지원하므로 Markdown 형태로 문서화 하자.
 
@@ -132,9 +139,9 @@ npm i -D typedoc typedoc-plugin-markdown
 typedoc --plugin typedoc-plugin-markdown --out docs src/index.ts
 ```
 
-## References
+## 5. 참조
 
 - [TSDoc](https://tsdoc.org)
 - [Compare JavaScript JSDoc with TypeScript TSDoc for Documentation](https://javascript.plainenglish.io/compare-javascript-jsdoc-with-typescript-tsdoc-for-documentation-a6984de1f2c5)
 - [Intro to TypeScript Documentation with TSDoc](https://coryrylan.com/blog/intro-to-typescript-documentation-with-tsdoc)
-- [How to Generate a TypeScript API Reference: Building an NPM Package with TypeScript](https://levelup.gitconnected.com/how-to-generate-a-typescript-api-reference-building-an-npm-package-with-typescript-9b2dc44a3aaa)
+- [typedoc-plugin-markdown](https://github.com/tgreyuk/typedoc-plugin-markdown/tree/master/packages/typedoc-plugin-markdown#readme)
