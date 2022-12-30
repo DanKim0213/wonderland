@@ -17,15 +17,23 @@
 
 ## 1. 문서화를 해야하는 이유
 
-가장 근본적인 이유는 코드를 읽고 이해할 시간이 부족하기 때문이다. (정말 부족하다....) 때로는 코드를 읽다가 오해하여 오용할수도 있다. 따라서, 문서화를 통해 시간을 절약하고 더 나은 커뮤니케이션 용도로 활용하자.
+> “Indeed, the ratio of time spent reading versus writing is well over 10 to 1.”
+>
+> Robert C. Martin, Clean Code
+
+가장 근본적인 이유는 커뮤니케이션이 훨씬 쉬워진다. 개발에 소요되는 시간은 내 코드를 내가 읽고 쓰는 데 걸린 시간이 아니라 팀이 개발하는 데 소요되는 시간임을 명심하자. 때로는 코드를 읽다가 오해하여 오용할 수도 있다. 따라서, 문서화를 통해 시간을 절약하고 더 나은 커뮤니케이션 용도로 활용하자.
+
+예를들어, 중복된 기능의 코드를 만드는 걸 예방할 수 있으며, api 사용법을 물어보지 않아도 된다. 그리고 문서화됐기때문에 읽는 양을 대폭 줄일 수 있다.
 
 ## 2. JSDoc과 TSDoc의 차이는
 
 - @param 태그에 type을 생략할 수 있다
 - @return 태그에 type을 생략할 수 있다
 - @example 태그에 코드가 아닌 간략한 설명 및 코드블럭을 넣을 수 있다.
+- JavaScript vs TypeScript
 
 ```javascript
+/** --- JavaScript --- */
 /** A class for rectangle. */
 class Rectangle {
   /**
@@ -72,6 +80,7 @@ class Rectangle {
 ```
 
 ````ts
+/** --- TypeScript --- */
 /** A class for rectangle. */
 class Rectangle {
   /** The width property of a rectangle. */
@@ -121,7 +130,16 @@ class Rectangle {
 
 ## 3. TSDoc 사용법은
 
-[공식 문서를 참조하도록](https://tsdoc.org)
+자세한 내용은 [공식 문서를 참조하도록](https://tsdoc.org)
+
+대표적으로 많이 쓰이는 태그들은:
+**@example** api를 어떻게 쓰는지 예시를 표시
+**@param** 파라미터를 표시
+**@defaultValue** 기본값을 표시
+**@returns** 반환값을 표시
+**@throws** 발생가능한 에러를 표시
+**@virtual** 부모 클래스에서 override 할 api
+**@override** 자식 클래스에서 override 한 api
 
 ## 4. 문서화를 Markdown 아니면 Html로 할 것인가
 
